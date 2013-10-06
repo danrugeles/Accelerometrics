@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import subprocess 
 import re
+import numpy as np
+
 
 __author__ = "Dan Rugeles"
 __copyright__ = "Copyright 2013, Accelerometrics"
@@ -39,6 +41,8 @@ def shell(command):
 	
 	return output
 	
+
+		
 """----------------------------*
 *                              *
 *   |\  /|   /\    |  |\  |    * 

@@ -42,6 +42,22 @@ def rssd(a,b):
 	a=np.array(a).flatten()
 	b=np.array(b).flatten()
 	return np.sum((a-b)**2)**0.5
+	
+	
+#--Weighted Root Sum Square Differences---------------------------------------
+"""Compute the root sum square difference for two iterables
+	Each dimension in the matrix will be weighted proportonally to the values of the first matrix
+
+a: list, matrix or ndarray
+b: list, matrix or ndarray
+
+Note. Both elements must have the same amount of primitive elements
+"""
+#---------------------------------------------------------------
+def rssdweighted(a,b):
+	a=np.array(a).flatten()
+	b=np.array(b).flatten()
+	return np.sum(a*((a-b)**2))**0.5
 
 #--Distance Triangle inconsistency ---------------------------------------
 """Compute the sum of inconsistencies for all pair of distances in the
@@ -94,7 +110,7 @@ def triangleinconsistency(distance1,distance2,distance1_2):
 *----------------------------"""
 if __name__=="__main__":
 
-	a=[[0,1,2],[3,4,2],[0,0,1]]
+	"""a=[[0,1,2],[3,4,2],[0,0,1]]
 	b=[[0,1,2],[3,4,1],[0,0,6]]
 	print "a\n",a
 	print "\nb\n",b
@@ -110,7 +126,23 @@ if __name__=="__main__":
 						[216,128,121,46,0,83],
 						[231,200,203,83,83,0]]
 	print "\nValid Distance Matrix\n",validdistancematrix
-	print "\n(numInconsistency,Inconsistency) in valid distance matrix\n",distanceinconsistency(validdistancematrix)
+	print "\n(numInconsistency,Inconsistency) in valid distance matrix\n",distanceinconsistency(validdistancematrix)"""
+	
+	a=np.load("User/MarkovChainDiff/122.npy")
+	b=np.load("Sequence/MarkovChainDiff/903203.npy")
+	print "Feature 1, Feature2, Distance",a,b,rssd(a,b)
+	a=np.load("User/MarkovChainDiff/122.npy")
+	b=np.load("Sequence/MarkovChainDiff/302753.npy")
+	print "Feature 1, Feature2, Distance",a,b,rssd(a,b)
+	a=np.load("User/MarkovChainDiff/122.npy")
+	b=np.load("Sequence/MarkovChainDiff/453739.npy")
+	print "Feature 1, Feature2, Distance",a,b,rssd(a,b)
+	a=np.load("User/MarkovChainDiff/122.npy")
+	b=np.load("Sequence/MarkovChainDiff/601802.npy")
+	print "Feature 1, Feature2, Distance",a,b,rssd(a,b)
+	
+	
+	
 	
 	
 
